@@ -23,13 +23,27 @@ export interface Car {
 }
 
 /**
+ * 車の移動方向を表す列挙型。
+ */
+export enum Direction {
+  /** 左方向。 */
+  Left = 'left',
+  /** 右方向。 */
+  Right = 'right',
+  /** 上方向。 */
+  Up = 'up',
+  /** 下方向。 */
+  Down = 'down',
+}
+
+/**
  * ゲームの履歴上の 1 手を表す。
  */
 export interface Move {
   /** 動かす車の ID。 */
   carId: string;
   /** 移動方向。 */
-  direction: 'left' | 'right' | 'up' | 'down';
+  direction: Direction;
   /** 移動するセル数（1 以上）。 */
   steps: number;
 }
