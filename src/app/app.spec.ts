@@ -16,10 +16,11 @@ describe('App', () => {
     expect(app).toBeTruthy();
   });
 
-  it('should render title', () => {
+  it('should contain router outlet', () => {
     const fixture = TestBed.createComponent(App);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, ng-rush-hour');
+    // ルートコンポーネントに <router-outlet> 要素が存在することを確認する
+    expect(compiled.querySelector('router-outlet')).not.toBeNull();
   });
 });
