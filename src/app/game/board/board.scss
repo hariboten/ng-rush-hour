@@ -1,0 +1,14 @@
+.board {
+  position: relative;
+  display: inline-block;
+  border: 2px solid #444;
+}
+.row {
+  display: flex;
+}
+.cell {
+  width: var(--size);
+  height: var(--size);
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+}

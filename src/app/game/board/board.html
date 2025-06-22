@@ -1,0 +1,10 @@
+<div class="board" [style.--size.px]="cellSize">
+  <div class="row" *ngFor="let y of sizeArray">
+    <div class="cell" *ngFor="let x of sizeArray"></div>
+  </div>
+  <app-car
+    *ngFor="let car of (state$ | async)?.cars"
+    [car]="car"
+    (move)="onMove($event)">
+  </app-car>
+</div>

@@ -1,0 +1,6 @@
+<div class="controls">
+  <button (click)="moveOne('up')" *ngIf="car.orientation === 'vertical'">↑</button>
+  <button (click)="moveOne('down')" *ngIf="car.orientation === 'vertical'">↓</button>
+  <button (click)="moveOne('left')" *ngIf="car.orientation === 'horizontal'">←</button>
+  <button (click)="moveOne('right')" *ngIf="car.orientation === 'horizontal'">→</button>
+</div>
