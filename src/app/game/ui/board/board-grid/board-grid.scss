@@ -1,0 +1,19 @@
+:host {
+  display: block;
+}
+
+.grid {
+  display: grid;
+  border: 2px solid #555;
+  width: max-content;
+}
+
+.cell {
+  border: 1px solid #999;
+  background-color: #fafafa;
+  aspect-ratio: 1;
+}
+
+.cell.exit {
+  background-color: #fdeaea;
+}

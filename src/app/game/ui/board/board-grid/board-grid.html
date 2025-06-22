@@ -1,1 +1,11 @@
-<p>board-grid works!</p>
+<div
+  class="grid"
+  [style.grid-template-columns]="'repeat(' + boardWidth() + ', 1fr)'"
+  [style.grid-template-rows]="'repeat(' + boardHeight() + ', 1fr)'"
+>
+  <ng-container *ngFor="let y of rows">
+    <ng-container *ngFor="let x of cols">
+      <div class="cell" [class.exit]="isExitCell(x, y)"></div>
+    </ng-container>
+  </ng-container>
+</div>
