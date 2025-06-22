@@ -1,3 +1,5 @@
+import { Direction } from './direction';
+
 /**
  * ゲームの履歴上の 1 手を表す。
  */
