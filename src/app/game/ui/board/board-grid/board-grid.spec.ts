@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { BoardGrid } from './board-grid';
+import { provideZonelessChangeDetection } from '@angular/core';
 
 describe('BoardGrid', () => {
   let component: BoardGrid;
@@ -8,13 +9,13 @@ describe('BoardGrid', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [BoardGrid]
-    })
-    .compileComponents();
+      imports: [BoardGrid],
+      providers: [provideZonelessChangeDetection()],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(BoardGrid);
     component = fixture.componentInstance;
-    fixture.detectChanges();
+    fixture.whenStable();
   });
 
   it('should create', () => {
