@@ -1,24 +1,15 @@
-import { join } from "path";
-process.env.CHROME_BIN = require("puppeteer").executablePath();
+import puppeteer from "puppeteer";
+process.env.CHROME_BIN = puppeteer.executablePath();
 console.log(process.env.CHROME_BIN);
 export default function (config) {
   config.set({
     basePath: "",
     frameworks: ["jasmine"],
     plugins: [
-      require("karma-jasmine"),
-      require("karma-chrome-launcher"),
-      require("karma-jasmine-html-reporter"),
-      require("karma-coverage"),
+      "karma-jasmine",
+      "karma-chrome-launcher",
+      "karma-jasmine-html-reporter",
     ],
-    jasmineHtmlReporter: {
-      suppressAll: true,
-    },
-    coverageReporter: {
-      dir: join(__dirname, "coverage", "ng-rush-hour"),
-      subdir: ".",
-      reporters: [{ type: "html" }, { type: "text-summary" }],
-    },
     reporters: ["progress", "kjhtml"],
     browsers: ["ChromeHeadlessNoSandbox"],
     customLaunchers: {
