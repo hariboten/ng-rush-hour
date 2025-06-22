@@ -63,4 +63,3 @@ export interface GameState {
   /** UNDO 用の履歴スタック。 */
   history: Move[];
 }
-
