@@ -12,24 +12,24 @@
 ### 2. データモデル
 
 `GameState` および `Move` の定義は [docs/design.md](../design.md) を参照。
-内部では `BehaviorSubject<GameState>` を用いて最新状態を保持する。
+内部では Angular の **Signals**（例: `signal<GameState>`）を用いて最新状態を保持する。
 
 ### 3. 公開 API
 
 | メソッド                     | 説明 |
 |-----------------------------|------|
-| `state$`: `Observable<GameState>` | 現在のゲーム状態を購読可能なストリーム |
-| `initialize(state: GameState): void` | 初期状態を設定し `state$` を更新 |
+| `state`: `Signal<GameState>` | 現在のゲーム状態を参照できるシグナル |
+| `initialize(state: GameState): void` | 初期状態を設定し `state` を更新 |
 | `move(move: Move): void`      | `isMoveLegal` で検証後 `applyMove` を適用 |
 | `undo(): void`                | 直前の手を巻き戻し状態を更新 |
 | `reset(): void`               | 初期状態へリセット |
-| `isCleared$`: `Observable<boolean>` | 勝利状態をストリームとして公開 |
+| `isCleared`: `Signal<boolean>` | 勝利状態をシグナルとして公開 |
 
 ### 4. 実装方針
 
 1. 純粋関数 `isMoveLegal`・`applyMove` 等を `GameService` から呼び出す
 2. 状態は不変データとして扱い、更新時は新しいオブジェクトを生成
-3. RxJS `BehaviorSubject` で状態を保持し、コンポーネントは `state$` を購読
+3. Signals で状態を保持し、コンポーネントは `state` を参照
 4. `undo` は `GameState.history` を参照して前状態を復元
 
 ### 5. 拡張ポイント
