@@ -7,7 +7,7 @@ import { Car, Move } from '../models';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './car.html',
-  styleUrl: './car.scss'
+  styleUrls: ['./car.scss']
 })
 export class CarComponent {
   @Input() car!: Car;

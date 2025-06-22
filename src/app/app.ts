@@ -5,7 +5,7 @@ import { BoardComponent } from './game/board/board';
   selector: 'app-root',
   imports: [BoardComponent],
   templateUrl: './app.html',
-  styleUrl: './app.scss',
+  styleUrls: ['./app.scss'],
 })
 export class App {
   protected title = 'ng-rush-hour';

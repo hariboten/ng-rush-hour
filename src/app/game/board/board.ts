@@ -10,7 +10,7 @@ import { CarComponent } from '../car/car';
   standalone: true,
   imports: [CommonModule, CarComponent],
   templateUrl: './board.html',
-  styleUrl: './board.scss'
+  styleUrls: ['./board.scss']
 })
 export class BoardComponent {
   readonly state$: Observable<GameState>;
