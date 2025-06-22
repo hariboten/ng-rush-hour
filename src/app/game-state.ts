@@ -12,8 +12,6 @@ export interface Car {
   id: string;
   /** 赤い車であれば true。 */
   isMain: boolean;
-  /** 車の向き（移動方向は現段階では固定しない）。 */
-  orientation: 'horizontal' | 'vertical';
   /** 車の幅（セル数。通常 2 または 3）。 */
   width: number;
   /** 車の高さ（セル数。通常 1 または 2）。 */
