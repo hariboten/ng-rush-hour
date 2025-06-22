@@ -1,0 +1,19 @@
+# GitHub Actionsでテストを自動実行する
+name: Node.js CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+      - run: npm ci
+      - run: npx ng test --watch=false --browsers=ChromeHeadlessNoSandbox --no-progress
