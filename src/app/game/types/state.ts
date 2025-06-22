@@ -1,10 +1,10 @@
 import { Action } from './action';
 import { Frame } from './frame';
-import { Puzzle } from './puzzle';
+import { Level } from './level';
 
 export interface State {
-  /** パズルの設定。 */
-  puzzle: Puzzle;
+  /** レベルの設定。 */
+  level: Level;
   /** 全てのフレーム。 */
   frames: Frame[];
   /** これまでの操作履歴。 */
