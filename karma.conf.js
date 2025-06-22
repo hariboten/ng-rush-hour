@@ -1,31 +1,36 @@
-const path = require('path');
-process.env.CHROME_BIN = require('puppeteer').executablePath();
-module.exports = function (config) {
+import { join } from "path";
+process.env.CHROME_BIN = require("puppeteer").executablePath();
+export default function (config) {
   config.set({
-    basePath: '',
-    frameworks: ['jasmine'],
+    basePath: "",
+    frameworks: ["jasmine"],
     plugins: [
-      require('karma-jasmine'),
-      require('karma-chrome-launcher'),
-      require('karma-jasmine-html-reporter'),
-      require('karma-coverage'),
+      require("karma-jasmine"),
+      require("karma-chrome-launcher"),
+      require("karma-jasmine-html-reporter"),
+      require("karma-coverage"),
     ],
     jasmineHtmlReporter: {
       suppressAll: true,
     },
     coverageReporter: {
-      dir: path.join(__dirname, 'coverage', 'ng-rush-hour'),
-      subdir: '.',
-      reporters: [{ type: 'html' }, { type: 'text-summary' }],
+      dir: join(__dirname, "coverage", "ng-rush-hour"),
+      subdir: ".",
+      reporters: [{ type: "html" }, { type: "text-summary" }],
     },
-    reporters: ['progress', 'kjhtml'],
-    browsers: ['ChromeHeadless'],
+    reporters: ["progress", "kjhtml"],
+    browsers: ["ChromeHeadlessNoSandBox"],
     customLaunchers: {
       ChromeHeadlessNoSandbox: {
-        base: 'ChromeHeadless',
-        flags: ['--no-sandbox', '--headless', '--disable-gpu', '--disable-dev-shm-usage'],
+        base: "ChromeHeadless",
+        flags: [
+          "--no-sandbox",
+          "--headless",
+          "--disable-gpu",
+          "--disable-dev-shm-usage",
+        ],
       },
     },
     restartOnFileChange: true,
   });
-};
+}
