@@ -1,5 +1,6 @@
 import { join } from "path";
 process.env.CHROME_BIN = require("puppeteer").executablePath();
+console.log(process.env.CHROME_BIN);
 export default function (config) {
   config.set({
     basePath: "",
