@@ -1,7 +1,7 @@
 import { Car } from './car';
 import { Point } from './point';
 
-export interface Puzzle {
+export interface Level {
   /** 盤面の一辺の長さ。6 なら 6x6 グリッド。 */
   boardSize: number;
 
