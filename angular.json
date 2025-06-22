@@ -74,6 +74,7 @@
           "options": {
             "karmaConfig": "karma.conf.js",
             "tsConfig": "tsconfig.spec.json",
+            "watch": false,
             "inlineStyleLanguage": "scss",
             "assets": [
               {
